@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ba.etf.luka.admin.controller.PocetniKontroler"
+            prefWidth="900" prefHeight="600">
+
+    <!-- Gornja traka -->
+    <top>
+        <VBox styleClass="header">
+            <Label text="Luka — Administratorski panel" styleClass="naslov"/>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <padding><Insets top="8" bottom="8" left="16" right="16"/></padding>
+                <Label text="Terminal:"/>
+                <ComboBox fx:id="cbTerminal" onAction="#onTerminalChanged"
+                          prefWidth="140"/>
+                <Separator orientation="VERTICAL"/>
+                <Label text="Dodaj plovilo:"/>
+                <ComboBox fx:id="cbTipPlovila" prefWidth="200"/>
+                <Button text="+ Dodaj plovilo" onAction="#onDodajPlovilo"
+                        styleClass="btn-primary"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="▶ Pokreni simulaciju" onAction="#onPokreniSimulaciju"
+                        styleClass="btn-success"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Centralni dio — tabela -->
+    <center>
+        <VBox spacing="8">
+            <padding><Insets top="12" left="16" right="16" bottom="12"/></padding>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Plovila na terminalu:" styleClass="podnaslov"/>
+                <Label fx:id="lblBrojSlobodnihVezova" styleClass="info-label"/>
+            </HBox>
+
+            <TableView fx:id="tabelaPlovila" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="kolNaziv"     text="Naziv"      prefWidth="150"/>
+                    <TableColumn fx:id="kolImo"       text="IMO broj"   prefWidth="120"/>
+                    <TableColumn fx:id="kolTip"       text="Tip"        prefWidth="130"/>
+                    <TableColumn fx:id="kolReg"       text="Reg. broj"  prefWidth="110"/>
+                    <TableColumn fx:id="kolMotori"    text="Motori"     prefWidth="70"/>
+                    <TableColumn fx:id="kolDetalji"   text="Detalji"    prefWidth="120"/>
+                </columns>
+                <placeholder>
+                    <Label text="Nema plovila na ovom terminalu."/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Dno — dugmad za akcije -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="footer">
+            <padding><Insets top="10" bottom="10" left="16" right="16"/></padding>
+            <Button text="✎ Izmijeni" onAction="#onIzmijeniPlovilo"
+                    styleClass="btn-secondary"/>
+            <Button text="✕ Obriši"   onAction="#onObrisiPlovilo"
+                    styleClass="btn-danger"/>
+            <Button text="⬇ Sačuvaj stanje" onAction="#onSacuvaj"
+                    styleClass="btn-secondary"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

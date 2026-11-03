@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ba.etf.luka.admin.controller.FormaPlovilaKontroler"
+      spacing="14" styleClass="forma-container">
+    <padding><Insets top="20" left="24" right="24" bottom="20"/></padding>
+
+    <Label fx:id="lblNaslovForme" styleClass="naslov"/>
+
+    <!-- Zajednička polja — uvijek vidljiva -->
+    <GridPane hgap="12" vgap="10">
+        <Label text="Naziv:"               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfNaziv"         GridPane.rowIndex="0" GridPane.columnIndex="1"
+                   prefWidth="280"/>
+
+        <Label text="IMO broj:"            GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfImo"           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Broj motora:"         GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfBrojMotora"    GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Registarski broj:"    GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfRegistarski"   GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Fotografija:"         GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <HBox spacing="8"                  GridPane.rowIndex="4" GridPane.columnIndex="1">
+            <TextField fx:id="tfFotografija" HBox.hgrow="ALWAYS" editable="false"/>
+            <Button text="Pretraži…" onAction="#onOdabieriFotografiju"/>
+        </HBox>
+    </GridPane>
+
+    <Separator/>
+
+    <!-- Dinamička polja — mijenjaju se prema tipu plovila -->
+    <Label text="Specifična polja:" styleClass="podnaslov"/>
+    <VBox fx:id="vboxDinamicka" spacing="10"/>
+
+    <Separator/>
+
+    <!-- Polje za državna plovila -->
+    <VBox fx:id="vboxDrzavna" spacing="8" managed="false" visible="false">
+        <CheckBox fx:id="cbRotacija" text="Rotacija upaljena (sirena)"/>
+        <!-- Fajl potjera — samo za obalsku stražu -->
+        <HBox fx:id="hboxPotjera" spacing="8" managed="false" visible="false">
+            <Label text="Fajl potjera:"/>
+            <TextField fx:id="tfFajlPotjera" HBox.hgrow="ALWAYS" editable="false"/>
+            <Button text="Pretraži…" onAction="#onOdaberiFajlPotjera"/>
+        </HBox>
+    </VBox>
+
+    <!-- Dugmad -->
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <Button text="Odustani" onAction="#onOdustani" styleClass="btn-secondary"/>
+        <Button text="Sačuvaj"  onAction="#onSacuvaj"  styleClass="btn-primary"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ba.etf.luka.user.controller.SimulacijaKontroler"
+            prefWidth="1100" prefHeight="700">
+    <top>
+        <VBox styleClass="header">
+            <HBox spacing="14" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="10" bottom="10" left="16" right="16"/>
+                </padding>
+                <Label text="Simulacija luke" styleClass="naslov"/>
+                <Separator orientation="VERTICAL"/>
+                <Label text="Terminal:"/>
+                <ComboBox fx:id="cbTerminal" prefWidth="140"
+                          onAction="#onTerminalChanged"/>
+                <Separator orientation="VERTICAL"/>
+                <Label fx:id="lblStatus" text="Plovila na dokovima..."
+                       style="-fx-text-fill:#90ee90;-fx-font-weight:bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnPokreniKretanje"
+                        text="▶ Pokreni kretanje"
+                        onAction="#onPokreniKretanje"
+                        styleClass="btn-success"/>
+                <Button text="+ Dodaj plovilo"
+                        onAction="#onDodajPlovilo"
+                        styleClass="btn-primary"/>
+                <Button text="📋 Uviđaji"
+                        onAction="#onPrikaziUvidaje"
+                        styleClass="btn-secondary"/>
+                <Button text="💰 Takse"
+                        onAction="#onPrikaziTakse"
+                        styleClass="btn-secondary"/>
+                <Button text="⬇ Izvezi CSV"
+                        onAction="#onIzvesiCsv"
+                        styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="14" left="16" right="16" bottom="10"/>
+            </padding>
+
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <Label text="Stanje terminala:" styleClass="podnaslov"/>
+                <Label fx:id="lblSlobodniVezovi"
+                       style="-fx-text-fill:#4a7fb5;-fx-font-weight:bold;"/>
+                <Label fx:id="lblBlokiran"
+                       style="-fx-text-fill:#dc2626;-fx-font-weight:bold;"
+                       visible="false" managed="false"/>
+            </HBox>
+
+            <TextArea fx:id="taKanal" editable="false"
+                      VBox.vgrow="ALWAYS"
+                      style="-fx-font-family:monospace;-fx-font-size:14px;"
+                      prefRowCount="10"/>
+
+            <!-- Legenda -->
+            <HBox spacing="16"
+                  style="-fx-background-color:#f0f4f8;
+                         -fx-padding:6 10;
+                         -fx-background-radius:6;">
+                <Label text="Legenda:" style="-fx-font-weight:bold;"/>
+                <Label text="* = slobodan dok"/>
+                <Label text="K = kontejnerski"/>
+                <Label text="P = kruzer"/>
+                <Label text="T = tanker"/>
+                <Label text="V = vatrogasci"/>
+                <Label text="OS = obalska straža"/>
+                <Label text="CA = carina"/>
+                <Label text="+R = rotacija"/>
+            </HBox>
+
+            <Separator/>
+
+            <Label text="Događaji:" styleClass="podnaslov"/>
+            <TextArea fx:id="taLog" editable="false"
+                      prefRowCount="7"
+                      style="-fx-font-family:monospace;-fx-font-size:12px;"/>
+        </VBox>
+    </center>
+</BorderPane>

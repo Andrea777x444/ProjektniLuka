@@ -1,0 +1,85 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f6f9;
+}
+
+.header {
+    -fx-background-color: #1e3a5f;
+    -fx-padding: 0;
+}
+
+.naslov {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 16 4 16;
+}
+
+.podnaslov {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c4a6e;
+}
+
+.info-label {
+    -fx-text-fill: #4a7fb5;
+    -fx-font-weight: bold;
+}
+
+.footer {
+    -fx-background-color: #eceff4;
+    -fx-border-color: #d0d7e2;
+    -fx-border-width: 1 0 0 0;
+}
+
+.forma-container {
+    -fx-background-color: white;
+}
+
+/* Dugmad */
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 7 18;
+    -fx-cursor: hand;
+}
+.btn-primary:hover { -fx-background-color: #1d4ed8; }
+
+.btn-success {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 7 18;
+    -fx-cursor: hand;
+}
+.btn-success:hover { -fx-background-color: #15803d; }
+
+.btn-secondary {
+    -fx-background-color: #6b7280;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 7 18;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover { -fx-background-color: #4b5563; }
+
+.btn-danger {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 7 18;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: #b91c1c; }
+
+/* Tabela */
+.table-view { -fx-background-color: white; }
+.table-view .column-header {
+    -fx-background-color: #e8edf5;
+    -fx-font-weight: bold;
+}
+.table-row-cell:selected { -fx-background-color: #bfdbfe; }
